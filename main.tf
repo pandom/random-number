@@ -26,3 +26,4 @@ variable "min" {
 variable "max" {
     default = 50000
 }
+#Update
