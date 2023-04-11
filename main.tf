@@ -14,7 +14,15 @@ provider "random" {
 resource "random_integer" "this" {
   min = var.min
   max = var.max
+  depends_on = [
+    time_sleep.wait_30_seconds
+  ]
 }
+
+resource "time_sleep" "wait_30_seconds" {
+  create_duration = "30s"
+}
+
 
 output "output" {
   value = random_integer.this.result
@@ -26,4 +34,3 @@ variable "min" {
 variable "max" {
     default = 50000
 }
-#Update
